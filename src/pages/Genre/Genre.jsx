@@ -34,10 +34,10 @@ const Post = () => {
 
     try {
       if (id === "new") {
-        axios.post(config.apiUrl, genre);
+        axios.post(`${config.apiUrl}/genre`, genre);
         return navigate("/");
       } else {
-        axios.patch(config.apiUrl + "/" + id, genre);
+        axios.patch(config.apiUrl + "/genre" + '/' + id, genre);
         return navigate("/");
       }
     } catch (error) {

@@ -16,3 +16,10 @@
   background-color: #0e1217;
   max-width: 250px;
 }
+
+@media (min-width: 768px){
+  .row-cols-md-3 > * {
+    flex: 0 0 auto;
+    width: 16.3%;
+  }
+}

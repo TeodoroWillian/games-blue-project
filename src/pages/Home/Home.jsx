@@ -49,12 +49,12 @@ const Home = () => {
               <div className="card-footer">
                 <small className="text-muted">
                   {" "}
-                  <a href={game.trailerYoutubeGamePlay}>Trailer</a>
+                  <a href={game.trailerYoutubeGamePlay} target="_blank">Trailer</a>
                 </small>
                 <br />
                 <small className="text-muted">
                   {" "}
-                  <a href={game.gamePlayYoutubeUrl}>Gameplay</a>
+                  <a href={game.gamePlayYoutubeUrl} target="_blank">Gameplay</a>
                 </small>
               </div>
               

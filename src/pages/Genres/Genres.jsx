@@ -20,7 +20,7 @@ const Genres = () => {
     try {
       setGenres(genres.filter((g) => g.id !== genre.id));
 
-      await axios.delete(`${config.apiUrl}/${genre.id}`);
+      await axios.delete(`${config.apiUrl}/genre/${genre.id}`);
     } catch (error) {
       console.log(error);
     }
