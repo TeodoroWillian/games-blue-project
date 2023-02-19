@@ -1,22 +1,18 @@
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 3fr;
-  gap: 2rem;
+.row,
+.h-100{
+  justify-content: center;
+  justify-items: center;
 }
 
-.grid h2 {
-  text-transform: uppercase;
+.card-text{
   text-align: center;
 }
 
-.btn-1 {
-  box-sizing: border-box;
-  background-color: #fff;
-  color: #0e1217;
-  border: 1px solid #fff;
-  opacity: 1;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  max-width: 100px;
+.card-title{
   text-align: center;
+}
+
+.card {
+  background-color: #0e1217;
+  max-width: 250px;
 }
