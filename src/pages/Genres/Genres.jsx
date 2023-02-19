@@ -10,7 +10,7 @@ const Genres = () => {
 
   useEffect(() => {
     const fetchGenres = async () => {
-      const { data } = await axios.get(config.apiUrl);
+      const { data } = await axios.get(`${config.apiUrl}/genre`);
       setGenres(data);
     };
     fetchGenres();

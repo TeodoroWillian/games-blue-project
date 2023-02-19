@@ -17,7 +17,7 @@ const Post = () => {
     if (id === "new") return;
 
     const fetchGenre = async () => {
-      const { data } = await axios.get(`${config.apiUrl}/${id}`);
+      const { data } = await axios.get(`${config.apiUrl}/genre/${id}`);
       setGenre(data);
     };
     fetchGenre();

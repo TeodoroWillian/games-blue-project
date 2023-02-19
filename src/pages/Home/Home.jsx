@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import ReactPlayer from "react-player";
-import './Home.css'
+import "./Home.css";
 import axios from "axios";
+import config from "../../config.json";
 
 const Home = () => {
   const [games, setGames] = useState([]);
 
   const getGames = async () => {
     try {
-      const response = await axios.get("http://localhost:3333/game");
+      const response = await axios.get(`${config.apiUrl}/game`);
 
       const data = response.data;
 
@@ -24,27 +23,41 @@ const Home = () => {
   }, []);
 
   return (
-    
-    <div className="grid">
-      
+    <div className="row row-cols-1 row-cols-md-3 g-4">
       {games.length === 0 ? (
         <p>Carregando...</p>
       ) : (
         games.map((game) => (
-          <div className="game" key={game.id}>
-            <img src={game.coverImageUrl} alt="Imagem do Jogo" />
-            <div className="games">
-              <h2>{game.title}</h2>
-              <p>{game.description}</p>
-              <Link to={`/games/${game.id}`} className="btn-1">
-                Ler mais
-              </Link>
-            </div>
-            <div className="videos">
-              <h2>Trailer:</h2>
-              <ReactPlayer url={game.trailerYoutubeGamePlay} />
-              <h2>Gameplay:</h2>
-              <ReactPlayer url={game.gamePlayYoutubeUrl} />
+          <div className="col" key={game.id}>
+            <div className="card h-100">
+              <img
+                src={game.coverImageUrl}
+                className="card-img-top"
+                alt="Imagem capa do jogo"
+                width="256"
+                height="256"
+              />
+              <div className="card-body">
+                <h5 className="card-title">{game.title}</h5>
+                <p className="card-text">{game.description}.</p>
+              </div>
+
+              <div className="card-footer">
+                <p>Ano de Lançamento: {game.year}</p>
+                <p>ImdbScore: {game.imdbScore}</p>
+              </div>
+              <div className="card-footer">
+                <small className="text-muted">
+                  {" "}
+                  <a href={game.trailerYoutubeGamePlay}>Trailer</a>
+                </small>
+                <br />
+                <small className="text-muted">
+                  {" "}
+                  <a href={game.gamePlayYoutubeUrl}>Gameplay</a>
+                </small>
+              </div>
+              
             </div>
           </div>
         ))
